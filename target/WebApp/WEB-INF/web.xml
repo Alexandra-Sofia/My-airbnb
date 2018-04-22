@@ -1,0 +1,259 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+<web-app id="AlexSite" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5">
+    <display-name>Archetype Created Web Application</display-name>
+    <!--*************************************************************************************************************-->
+    <!--<servlet>
+        <description>Apache CXF Endpoint</description>
+        <display-name>cxf</display-name>
+        <servlet-name>cxf</servlet-name>
+        <servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>cxf</servlet-name>
+        <url-pattern>/services/*</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>60</session-timeout>
+    </session-config>
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>WEB-INF/cxf-beans.xml</param-value>
+    </context-param>-->
+    <!--<listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>-->
+    <!--****************************************CONTROLLERS**********************************************************-->
+    <servlet>
+        <description>Model View Controller for the Homepage</description>
+        <display-name>servlets.HomepageController</display-name>
+        <servlet-name>HomepageController</servlet-name>
+        <servlet-class>servlets.HomepageController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HomepageController</servlet-name>
+        <url-pattern>/servlets.HomepageController</url-pattern>
+        <url-pattern>/index</url-pattern>
+        <url-pattern>/index.jsp</url-pattern>
+        <url-pattern>/main.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>User validator - authenticator servlet</servlet-name>
+        <servlet-class>servlets.Validate</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>User validator - authenticator servlet</servlet-name>
+        <url-pattern>/validate</url-pattern>
+        <url-pattern>/loginRequest</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Get user info</servlet-name>
+        <servlet-class>servlets.UserInfo</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Get user info</servlet-name>
+        <url-pattern>/infoRequest</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Get user reservations</servlet-name>
+        <servlet-class>servlets.Reservations</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Get user reservations</servlet-name>
+        <url-pattern>/getreservations</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Get host listings</servlet-name>
+        <servlet-class>servlets.Listings</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Get host listings</servlet-name>
+        <url-pattern>/getlistings</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <description>New User Servlet</description>
+        <display-name>servlets.NewUser</display-name>
+        <servlet-name>NewUser</servlet-name>
+        <servlet-class>servlets.newUser</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>NewUser</servlet-name>
+        <url-pattern>/newuser</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <description>Search servlet</description>
+        <display-name>servlets.SearchController</display-name>
+        <servlet-name>SearchController</servlet-name>
+        <servlet-class>servlets.SearchController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SearchController</servlet-name>
+        <url-pattern>/servlets.SearchController</url-pattern>
+        <url-pattern>/search</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <description>Sign up servlet</description>
+        <display-name>servlets.SignUpControler</display-name>
+        <servlet-name>SignUpController</servlet-name>
+        <servlet-class>servlets.SignUpController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SignUpController</servlet-name>
+        <url-pattern>/servlets.SignUpControler</url-pattern>
+        <url-pattern>/sign_up</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <description>Login servlet</description>
+        <display-name>servlets.LoginController</display-name>
+        <servlet-name>LoginController</servlet-name>
+        <servlet-class>servlets.LoginController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginController</servlet-name>
+        <url-pattern>/servlets.LoginController</url-pattern>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <description>Logout servlet</description>
+        <display-name>servlets.LogoutController</display-name>
+        <servlet-name>LogoutController</servlet-name>
+        <servlet-class>servlets.LogoutController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogoutController</servlet-name>
+        <url-pattern>/servlets.LogoutController</url-pattern>
+        <url-pattern>/Logout</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <description>Apartment servlet</description>
+        <display-name>servlets.ListingController</display-name>
+        <servlet-name>ListingController</servlet-name>
+        <servlet-class>servlets.ListingController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListingController</servlet-name>
+        <url-pattern>/servlets.ListingController</url-pattern>
+        <url-pattern>/listing</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <description>Control Servlet for the *.inc</description>
+        <display-name>IncludeControler</display-name>
+        <servlet-name>IncludeController</servlet-name>
+        <servlet-class>servlets.IncludeController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>IncludeController</servlet-name>
+        <url-pattern>*.inc</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <description>Tests servlet</description>
+        <display-name>servlets.TestControler</display-name>
+        <servlet-name>TestController</servlet-name>
+        <servlet-class>servlets.TestControler</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TestController</servlet-name>
+        <url-pattern>/servlets.TestControler</url-pattern>
+        <url-pattern>/testing</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <description>Admin Servlet</description>
+        <display-name>servlets.AdminController</display-name>
+        <servlet-name>AdminController</servlet-name>
+        <servlet-class>servlets.AdminController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminController</servlet-name>
+        <url-pattern>/administration</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <description>Profile Servlet</description>
+        <display-name>servlets.ProfileController</display-name>
+        <servlet-name>ProfileController</servlet-name>
+        <servlet-class>servlets.ProfileController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProfileController</servlet-name>
+        <url-pattern>/profile</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <description>Booking Page</description>
+        <display-name>servlets.BookingController</display-name>
+        <servlet-name>BookingForm</servlet-name>
+        <servlet-class>servlets.BookingController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BookingForm</servlet-name>
+        <!--<url-pattern>/</url-pattern>-->
+        <url-pattern>/book-listing</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <description>BookRequest</description>
+        <display-name>servlets.BookRequest</display-name>
+        <servlet-name>BookRequest</servlet-name>
+        <servlet-class>servlets.BookRequest</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BookRequest</servlet-name>
+        <url-pattern>/bookRequest</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <description>ListingRequest</description>
+        <display-name>servlets.ListingRequest</display-name>
+        <servlet-name>ListingRequest</servlet-name>
+        <servlet-class>servlets.ListingRequest</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListingRequest</servlet-name>
+        <url-pattern>/listingRequest</url-pattern>
+    </servlet-mapping>
+    <!--*************************************************************************************************************-->
+    <!--<filter>
+        <filter-name>RequestLoggingFilter</filter-name>
+        <filter-class>filters.RequestLoggingFilter</filter-class>
+    </filter>-->
+
+    <!--*********************************************FILTERS*********************************************************-->
+
+    <filter>
+        <filter-name>AuthenticationFilter</filter-name>
+        <filter-class>filters.AuthenticationFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AuthenticationFilter</filter-name>
+        <url-pattern>*/profile</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>AdministrationFilter</filter-name>
+        <filter-class>filters.AdministrationFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AdministrationFilter</filter-name>
+        <url-pattern>*/administration</url-pattern>
+    </filter-mapping>
+    <!--*************************************************************************************************************-->
+
+
+</web-app>
+
